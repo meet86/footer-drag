@@ -12,7 +12,7 @@
           <tr  v-for="(menu, menuIndex) in menuFields" :id="menu" :key="menu">
             <select>
               <option> Select </option>
-              <option v-for="menu in headers" :value="menu" :key="menu">{{ menu }}</option>
+              <option v-for="(menu, i) in headers" :value="menu" :key="i">{{ menu }}</option>
             </select>
             <button type="button" @click="removeMenuField(menuIndex)">-</button>
           </tr>
@@ -80,7 +80,7 @@ export default {
     removeMenuField (menuIndex, event) {
       this.menuFields.splice(menuIndex, 1)
       this.menuCount -= 1
-      event.target.parentNode.remove()
+      // event.target.parentNode.remove()
     }
   }
 
